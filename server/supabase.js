@@ -1,5 +1,17 @@
 import { createClient } from '@supabase/supabase-js';
 import { HttpError } from './validation.js';
+
+export async function result(query) {
+  const { data, error } = await query;
+
+  if (error) {
+    console.error('Erro Supabase:', {
+      code: error.code,
+      message: error.message
+    });
+
+    if (error.code === 'P0001') throw new HttpError(422, error.message);
+
 export function clients(config) {
   const options = { auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false } };
   return {

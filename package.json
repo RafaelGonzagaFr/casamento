@@ -1,0 +1,26 @@
+{
+  "name": "casamento-js-supabase",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Convites, RSVP e presentes — Rafael e Maria",
+  "engines": {
+    "node": ">=22.9.0"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server/index.js",
+    "dev": "node --watch --env-file-if-exists=.env server/index.js",
+    "test": "node --test tests/*.test.js",
+    "test:database": "node --test tests/database.test.js",
+    "check": "node scripts/check.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "2.76.1",
+    "express": "5.1.0",
+    "qrcode": "1.5.4"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.3.10",
+    "jsdom": "26.1.0"
+  }
+}
